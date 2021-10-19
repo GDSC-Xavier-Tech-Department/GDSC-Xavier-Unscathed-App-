@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed_app/Backend/constants.dart';
+import 'package:unscathed_app/Screens/homepage.dart';
+import 'package:unscathed_app/Screens/loginpage.dart';
 
 class welcomepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("UNSCATHED GYM"),
+    return SafeArea(
+      child: Scaffold(
+        // appBar: AppBar(
+        //   title: Text("UNSCATHED GYM"),
+        // ),
+        body: welcomePageBody(),
       ),
-      body: welcomePageBody(),
     );
   }
 }
@@ -39,9 +43,16 @@ class welcomePageBody extends StatelessWidget {
               Column(
                 children: [
                   customButton(
+                    onpress: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage())),
                     buttonText: "Login",
                   ),
-                  customButton(buttonText: "Register"),
+                  SizedBox(height: 15.0),
+                  customButton(
+                      onpress: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => homepage())),
+                      buttonText: "Register"),
+                  //TODO: Create Register Button and change Navigator.pushh
                 ],
               ),
             ],
@@ -54,26 +65,28 @@ class welcomePageBody extends StatelessWidget {
 
 class customButton extends StatelessWidget {
   final String buttonText;
+  final VoidCallback onpress;
 
-  customButton({required this.buttonText});
+  customButton({required this.buttonText, required this.onpress});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18.0),
+    return SizedBox(
+      height: 45.0,
+      width: 230.0,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ),
           ),
+          backgroundColor: MaterialStateProperty.all(kbuttonColor),
+          foregroundColor: MaterialStateProperty.all(Colors.black),
         ),
-        backgroundColor: MaterialStateProperty.all(buttonColor),
-        foregroundColor: MaterialStateProperty.all(Colors.black),
-        fixedSize: MaterialStateProperty.all(
-          Size.fromWidth(150), //sets buttons with a fixed size
-        ),
+        onPressed: onpress,
+        child: Text(buttonText),
       ),
-      onPressed: () => print('jems'),
-      child: Text(buttonText),
     );
   }
 }

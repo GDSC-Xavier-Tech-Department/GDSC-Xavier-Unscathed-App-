@@ -13,7 +13,9 @@ class UnscathedApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: welcomepage(),
-      theme: ThemeData.dark().copyWith(buttonColor: buttonColor),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+      ),
     );
   }
 }
