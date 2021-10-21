@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed_app/Backend/constants.dart';
 import 'package:unscathed_app/Screens/homepage.dart';
-import 'package:unscathed_app/Screens/loginpage.dart';
+import 'package:unscathed_app/Screens/registerpage.dart';
+
+import 'package:date_time_picker/date_time_picker.dart';
 
 class welcomepage extends StatelessWidget {
   @override
@@ -44,13 +46,15 @@ class welcomePageBody extends StatelessWidget {
                 children: [
                   customButton(
                     onpress: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage())),
+                        MaterialPageRoute(builder: (context) => homepage())),
                     buttonText: "Login",
                   ),
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 10.0),
                   customButton(
-                      onpress: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => homepage())),
+                      onpress: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage())),
                       buttonText: "Register"),
                   //TODO: Create Register Button and change Navigator.pushh
                 ],
