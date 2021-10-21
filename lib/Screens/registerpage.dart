@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:unscathed_app/Backend/constants.dart';
-import 'package:unscathed_app/Screens/welcomepage.dart';
+import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Screens/welcomepage.dart';
 import 'package:intl/intl.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -224,10 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                         customColorChecker(),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 5),
                         Flexible(
                           flex: 4,
                           child: Padding(

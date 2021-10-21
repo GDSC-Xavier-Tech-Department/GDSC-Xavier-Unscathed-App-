@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:unscathed_app/Backend/constants.dart';
-import 'package:unscathed_app/Screens/homepage.dart';
-import 'package:unscathed_app/Screens/registerpage.dart';
+import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Screens/homepage.dart';
+import 'package:unscathed/Screens/registerpage.dart';
 
 import 'package:date_time_picker/date_time_picker.dart';
 
