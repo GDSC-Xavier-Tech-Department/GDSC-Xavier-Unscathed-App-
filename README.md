@@ -14,7 +14,7 @@ Lear Rara
 
 ## Technologies Used
 1. Flutter;
-2. Firebase
+2. Firebase; and
 3. Git/Github
 
 
