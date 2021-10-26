@@ -81,6 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                       customDivider(),
                       SizedBox(height: 15.0),
                       Text("or Login with"),
+                      //TODO: Add custom Textstyle to text
+                      //TODO: Add button functionality to be paired with Firebase for buttons
                       SizedBox(height: 15.0),
                       SignInButton(Buttons.GoogleDark, onPressed: () {}),
                       SignInButton(Buttons.Facebook, onPressed: () {}),
