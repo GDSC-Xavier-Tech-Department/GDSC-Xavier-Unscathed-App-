@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Screens/welcomepage.dart';
 import 'package:unscathed/Custom Widgets/customwidgets.dart';
+
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +13,8 @@ class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
+
+bool _passwordLogin = true;
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -54,8 +59,18 @@ class _LoginPageState extends State<LoginPage> {
                       Flexible(
                         child: Container(
                           child: TextFormField(
+                            obscureText: _passwordLogin,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _passwordLogin = !_passwordLogin;
+                                    });
+                                  },
+                                  icon: _passwordLogin
+                                      ? Icon(Icons.visibility)
+                                      : Icon(Icons.visibility_off)),
                               prefixIcon: Icon(Icons.lock_open),
                               labelText: "Password",
                               border: OutlineInputBorder(
@@ -67,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 15.0),
                       customButton(
+                        //TODO: Add Integration with Firebase
                         buttonText: "Submit",
                         onpress: () =>
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -78,9 +94,22 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         height: 15.0,
                       ),
+                      InkWell(
+                        onTap: () => launch("www.facebook.com"),
+                        //TODO: Add URL or Page for forgot password
+                        child: Text(
+                          "Forgot Password?",
+                          style: khighlightedTextStyle,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
                       customDivider(),
                       SizedBox(height: 15.0),
                       Text("or Login with"),
+                      //TODO: Add custom Textstyle to text
+                      //TODO: Add button functionality to be paired with Firebase for buttons
                       SizedBox(height: 15.0),
                       SignInButton(Buttons.GoogleDark, onPressed: () {}),
                       SignInButton(Buttons.Facebook, onPressed: () {}),

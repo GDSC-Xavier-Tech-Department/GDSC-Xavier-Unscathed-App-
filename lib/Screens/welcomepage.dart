@@ -3,6 +3,7 @@ import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Screens/homepage.dart';
 import 'package:unscathed/Screens/loginpage.dart';
 import 'package:unscathed/Screens/registerpage.dart';
+import 'package:unscathed/Custom Widgets/customwidgets.dart';
 
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -63,34 +64,6 @@ class welcomePageBody extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class customButton extends StatelessWidget {
-  final String buttonText;
-  final VoidCallback onpress;
-
-  customButton({required this.buttonText, required this.onpress});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 45.0,
-      width: 230.0,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-            ),
-          ),
-          backgroundColor: MaterialStateProperty.all(kbuttonColor),
-          foregroundColor: MaterialStateProperty.all(Colors.black),
-        ),
-        onPressed: onpress,
-        child: Text(buttonText),
       ),
     );
   }

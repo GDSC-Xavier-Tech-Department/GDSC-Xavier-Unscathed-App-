@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Custom%20Widgets/customwidgets.dart';
 import 'package:unscathed/Screens/welcomepage.dart';
+import 'package:unscathed/Custom Widgets/customwidgets.dart';
+
 import 'package:intl/intl.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -24,10 +26,13 @@ bool _passwordEightCharacters = false; //password checker
 bool _hasOneNumber = false; //password checker
 bool _hasOneCapitalLetter = false;
 bool _hasOneSpecialChar = false;
+customColorCheckerState checker =
+    customColorCheckerState(); //object from customColorCheckerState class to access method for colorchecker
+
 final _formkey = GlobalKey<FormState>();
 
 class _RegisterPageState extends State<RegisterPage> {
-  //circle color check at the bottom
+  //method in charge of checking the password and confirming if it matches the criteria
   colorCheck(String password) {
     final regexCheckerNumber = RegExp(r'[0-9]{1,}');
     final regexCheckerCapital = RegExp(r'[A-Z]{1,}');
