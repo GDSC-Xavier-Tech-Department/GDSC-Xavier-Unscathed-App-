@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Screens/homepage.dart';
+import 'package:unscathed/Screens/loginpage.dart';
 import 'package:unscathed/Screens/registerpage.dart';
 
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class welcomepage extends StatelessWidget {
   @override
@@ -46,7 +48,7 @@ class welcomePageBody extends StatelessWidget {
                 children: [
                   customButton(
                     onpress: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => homepage())),
+                        MaterialPageRoute(builder: (context) => LoginPage())),
                     buttonText: "Login",
                   ),
                   SizedBox(height: 10.0),
@@ -56,7 +58,6 @@ class welcomePageBody extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => RegisterPage())),
                       buttonText: "Register"),
-                  //TODO: Create Register Button and change Navigator.pushh
                 ],
               ),
             ],
