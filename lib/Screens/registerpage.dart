@@ -1,28 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Custom%20Widgets/customwidgets.dart';
 import 'package:unscathed/Screens/welcomepage.dart';
+import 'package:unscathed/Custom Widgets/customwidgets.dart';
+
 import 'package:intl/intl.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
+bool colorCheckVisibility = false;
 String? name;
 String? birthday; //final birthday value casted as String
 late DateTime _dateofBirth;
-final dateController = TextEditingController();
+final dateController = TextEditingController(); //controller for birthday field
+final passwordController =
+    TextEditingController(); //controller for password field
 bool _password1 = true;
 bool _passwordEightCharacters = false; //password checker
 bool _hasOneNumber = false; //password checker
 bool _hasOneCapitalLetter = false;
 bool _hasOneSpecialChar = false;
+customColorCheckerState checker =
+    customColorCheckerState(); //object from customColorCheckerState class to access method for colorchecker
+
 final _formkey = GlobalKey<FormState>();
 
 class _RegisterPageState extends State<RegisterPage> {
-  //circle color check at the bottom
+  //method in charge of checking the password and confirming if it matches the criteria
   colorCheck(String password) {
     final regexCheckerNumber = RegExp(r'[0-9]{1,}');
     final regexCheckerCapital = RegExp(r'[A-Z]{1,}');
@@ -53,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         body: Form(
           //autovalidateMode: AutovalidateMode.always,
           //will always check if input is right even before submit button is pressed; for debugging only
@@ -193,6 +203,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           //password
                           flex: 5,
                           child: TextFormField(
+                            controller: passwordController,
                             validator: (value) {
                               if (value != null &&
                                   value.isNotEmpty &&
@@ -203,7 +214,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 return "Please enter valid password";
                               }
                             },
-                            onChanged: (password) => colorCheck(password),
+                            onChanged: (password) {
+                              colorCheck(password);
+                              passwordController.text.isEmpty
+                                  ? colorCheckVisibility = false
+                                  : colorCheckVisibility = true;
+                              //if value of password field is empty, then the password checker will disappear
+                              //otherwise, it will appear
+                            },
                             obscureText: _password1,
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.lock),
@@ -223,7 +241,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
-                        customColorChecker(),
+                        Visibility(
+                          maintainSize: false,
+                          maintainAnimation: false,
+                          maintainState: false,
+                          child: customColorChecker(),
+                          visible: colorCheckVisibility,
+                        ),
                         SizedBox(height: 5),
                         Flexible(
                           flex: 4,
@@ -244,7 +268,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                   }),
                             ),
                           ),
-                        )
+                        ),
+                        customDivider(),
+                        SignInButton(Buttons.GoogleDark, onPressed: () {}),
+                        SignInButton(Buttons.Facebook, onPressed: () {}),
+                        SignInButton(Buttons.AppleDark, onPressed: () {})
                       ],
                     ),
                   ),
