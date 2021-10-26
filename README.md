@@ -4,12 +4,12 @@ The first Collaborative project by the GDSC Xavier Technology Department. The ap
 
 Members/Collaborators:
 
-James Patrick Jilhaney
-Patricia Destriza
-James Panganiban
-Ethan Obial
-Joshua Salcedo
-Lear Rara
+1. James Patrick Jilhaney
+2. Patricia Destriza
+3. James Panganiban
+4. Ethan Obial
+5. Joshua Salcedo
+6. Lear Rara
 
 
 ## Technologies Used
