@@ -1,16 +1,32 @@
-# unscathed_app
+# Unscathed Gym Application
 
-A new Flutter project.
+The first Collaborative project by the GDSC Xavier Technology Department. The app aims to help Unscathed gym, a local business owned by one of the collaborators, with its clientele and inventory.
+
+Members/Collaborators:
+
+James Patrick Jilhaney
+Patricia Destriza
+James Panganiban
+Ethan Obial
+Joshua Salcedo
+Lear Rara
+
+
+## Technologies Used
+1. Flutter;
+2. Firebase
+3. Git/Github
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## How to use the app
 
-A few resources to get you started if this is your first Flutter project:
+Member App 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Admin App
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Dashboard
+
+
+##Follow our page - https://www.facebook.com/gdscxavier
