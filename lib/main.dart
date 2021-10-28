@@ -14,6 +14,8 @@ class UnscathedApp extends StatelessWidget {
     return MaterialApp(
       home: welcomepage(),
       theme: ThemeData.dark().copyWith(
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedItemColor: kbuttonColor, backgroundColor: Colors.black12),
         scaffoldBackgroundColor: Colors.black,
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Screens/dashboard.dart';
 import 'package:unscathed/Screens/welcomepage.dart';
 import 'package:unscathed/Custom Widgets/customwidgets.dart';
 
@@ -82,15 +83,20 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 15.0),
                       customButton(
-                        //TODO: Add Integration with Firebase
-                        buttonText: "Submit",
-                        onpress: () =>
+                          //TODO: Add Integration with Firebase
+                          buttonText: "Submit",
+                          onpress: () {
                             ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Submitting Data'),
-                          ),
-                        ),
-                      ),
+                              SnackBar(
+                                content: Text('Submitting Data'),
+                              ),
+                            );
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Dashboard()));
+                          }),
                       SizedBox(
                         height: 15.0,
                       ),
