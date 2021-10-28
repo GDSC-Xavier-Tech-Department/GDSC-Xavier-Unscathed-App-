@@ -115,6 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           flex: 5,
                           child: TextFormField(
                             validator: EmailValidator(
+                                //using dependency
                                 errorText: "Enter a valid email address"),
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
@@ -131,6 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Flexible(
                           flex: 5,
                           child: PhoneFormField(
+                            //using dependency
                             validator: (value) {
                               if (value != null && value.validate()) {
                                 return null;
