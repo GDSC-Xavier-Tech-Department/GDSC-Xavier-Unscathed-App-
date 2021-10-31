@@ -15,8 +15,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 bool colorCheckVisibility = false;
-String? name;
-String? birthday; //final birthday value casted as String
+String? _name;
+String? _birthday; //final birthday value casted as String
 late DateTime _dateofBirth;
 final dateController = TextEditingController(); //controller for birthday field
 final passwordController =
@@ -185,7 +185,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   dateController.text = formattedDate;
                                   DateTime temporary = value;
                                   // print(formattedDate);
-                                  birthday = formattedDate;
+                                  _birthday = formattedDate;
                                 });
                               });
                             },

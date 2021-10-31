@@ -30,39 +30,33 @@ class welcomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/welcomepage_background.png'),
-              fit: BoxFit.cover),
-        ),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Image.asset(
-                'assets/unscathed_logo.png',
-                width: 300,
-              ),
-              Column(
-                children: [
-                  customButton(
-                    onpress: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage())),
-                    buttonText: "Login",
-                  ),
-                  SizedBox(height: 10.0),
-                  customButton(
-                      onpress: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage())),
-                      buttonText: "Register"),
-                ],
-              ),
-            ],
-          ),
+      child: Container(
+        color: kdarkColor,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset(
+              'assets/unscathed_logo.png',
+              width: 300,
+            ),
+            Column(
+              children: [
+                customButton(
+                  onpress: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage())),
+                  buttonText: "Login",
+                ),
+                SizedBox(height: 10.0),
+                customButton(
+                    onpress: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterPage())),
+                    buttonText: "Register"),
+              ],
+            ),
+          ],
         ),
       ),
     );
