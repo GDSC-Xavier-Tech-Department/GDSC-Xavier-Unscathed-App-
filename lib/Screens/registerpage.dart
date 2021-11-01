@@ -18,10 +18,15 @@ bool colorCheckVisibility = false;
 String? _name;
 String? _birthday; //final birthday value casted as String
 late DateTime _dateofBirth;
+
+//Controllers
+final nameController = TextEditingController();
+final emailController = TextEditingController();
+final phoneController = TextEditingController();
 final dateController = TextEditingController(); //controller for birthday field
 final passwordController =
     TextEditingController(); //controller for password field
-final nameController = TextEditingController();
+
 bool _password1 = true;
 bool _passwordEightCharacters = false; //password checker
 bool _hasOneNumber = false; //password checker
@@ -89,8 +94,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         Flexible(
                           flex: 5,
-                          child: TextFormField( //name
-                          controller: nameController,
+                          child: TextFormField(
+                            //name
+                            controller: nameController,
                             initialValue: "",
                             validator: (value) {
                               if (value != null &&
