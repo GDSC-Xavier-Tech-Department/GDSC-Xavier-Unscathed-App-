@@ -32,14 +32,15 @@ class _homepageState extends State<homepage> {
           onTap: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => TimerPage())),
           child: Container(
-            color: Colors.grey,
+            color: Colors.blueGrey,
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: CircularCountDownTimer(
                 //using dependency
-                ringColor: Colors.black,
+                textFormat: CountdownTextFormat.MM_SS,
+                ringColor: Colors.grey,
                 strokeCap: StrokeCap.round,
-                textStyle: klargeTextStyle,
+                textStyle: klargeWhiteTextStyle,
                 fillColor: kbuttonColor,
                 height: MediaQuery.of(context).size.height /
                     3, //takes the size of the screen and resizes to the screensize divided by 3
