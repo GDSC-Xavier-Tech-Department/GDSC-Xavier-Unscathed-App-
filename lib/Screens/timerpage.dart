@@ -79,17 +79,18 @@ class _TimerPageState extends State<TimerPage> {
                             //   minutes: int.parse(minController.text),
                             //   seconds: int.parse(secController.text),
                             // );
-                            if (minController.text.isEmpty) {
+                            if (minController.text.isEmpty) { //if the value of the minutes textform is empty, use default value of 0 instead
                               _duration = timer.setDuration(
                                 minutes: 0,
                                 seconds: int.parse(secController.text),
                               );
                             }
-                            if (secController.text.isEmpty) {
+                            if (secController.text.isEmpty) { //if the value of the seconds textform is empty, use default value of 0 instead
                               _duration = timer.setDuration(
                                   minutes: int.parse(minController.text),
                                   seconds: 0);
-                            }
+                            } //FIXME: Timer does not automatically change its duration when you change it in the textform
+                            //you need to exit the screen and press start for it to work
                             print("timerpage duration is: $_duration");
                             _controller.start();
                             print("Controller value is: ");
