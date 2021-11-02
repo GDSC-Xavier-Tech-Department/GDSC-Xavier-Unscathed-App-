@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Screens/timerpage.dart';
 
 //FILE FOR ALL CUSTOM WIDGETS
 
@@ -205,6 +208,108 @@ class customColorCheckerState extends State<customColorChecker> {
           ],
         ),
       ],
+    );
+  }
+}
+
+class customTimerSetDurationWidget extends StatefulWidget {
+  // const customTimerSetDurationWidget({
+  // //   Key? key,
+  // // }) : super(key: key);
+
+  customTimerSetDurationWidget(
+      {required this.minuteController, required this.secondsController});
+
+  TextEditingController minuteController;
+  TextEditingController secondsController;
+
+  @override
+  State<customTimerSetDurationWidget> createState() =>
+      _customTimerSetDurationWidgetState();
+}
+
+class _customTimerSetDurationWidgetState
+    extends State<customTimerSetDurationWidget> {
+  @override
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Container(
+              width: 50,
+              child: TextField(
+                controller: widget.minuteController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "00",
+                  hintStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Minutes"),
+            ),
+          ],
+        ),
+        SizedBox(width: 10),
+        Column(
+          children: [
+            Container(
+              width: 50,
+              child: TextField(
+                //  controller: secController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "00",
+                  hintStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Seconds"),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class RoundButton extends StatelessWidget {
+  const RoundButton({
+    Key? key,
+    required this.icon,
+  }) : super(key: key);
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 5,
+      ),
+      child: CircleAvatar(
+        backgroundColor: kdarkbuttonColor,
+        radius: 30,
+        child: Icon(
+          icon,
+          size: 36,
+          color: kbuttonColor,
+        ),
+      ),
     );
   }
 }

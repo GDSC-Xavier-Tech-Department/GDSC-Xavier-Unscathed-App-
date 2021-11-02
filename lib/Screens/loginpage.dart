@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Screens/dashboard.dart';
-import 'package:unscathed/Screens/welcomepage.dart';
 import 'package:unscathed/Custom Widgets/customwidgets.dart';
 
 import 'package:flutter/services.dart';
