@@ -2,6 +2,7 @@ import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ringtone_player/ios_sounds.dart';
 
 import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Custom Widgets/customwidgets.dart';
@@ -29,7 +30,8 @@ class _TimerPageState extends State<TimerPage> with TickerProviderStateMixin {
 
   void notify() {
     if (countText == '0:00:00') {
-      FlutterRingtonePlayer.playNotification();
+      FlutterRingtonePlayer.playNotification(asAlarm: true);
+      //will play a notification sound, ignoring silent mode
     }
   }
 
