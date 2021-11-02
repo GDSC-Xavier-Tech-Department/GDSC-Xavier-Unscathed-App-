@@ -50,13 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.2"
-  circular_countdown_timer:
-    dependency: "direct main"
-    description:
-      name: circular_countdown_timer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
   clock:
     dependency: transitive
     description:
@@ -125,6 +118,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.4"
+  flutter_ringtone_player:
+    dependency: "direct main"
+    description:
+      name: flutter_ringtone_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   flutter_signin_button:
     dependency: "direct main"
     description:
