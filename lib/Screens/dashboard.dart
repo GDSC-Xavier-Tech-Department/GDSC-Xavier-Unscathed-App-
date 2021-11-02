@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unscathed/Backend/constants.dart';
 import 'homepage.dart';
 import 'profile.dart';
 import 'settings.dart';
@@ -28,6 +29,7 @@ class _DashboardState extends State<Dashboard> {
         body: Screens[
             pageIndex], //will set the screen based on the Screens list using the current page index
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: kdarkbuttonColor,
           iconSize: 30,
           onTap: (index) => setState(() => pageIndex = index),
           currentIndex: pageIndex,

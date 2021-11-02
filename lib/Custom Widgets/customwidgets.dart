@@ -313,3 +313,20 @@ class RoundButton extends StatelessWidget {
     );
   }
 }
+
+class customDashboardContainer extends StatelessWidget {
+  const customDashboardContainer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.red,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+}

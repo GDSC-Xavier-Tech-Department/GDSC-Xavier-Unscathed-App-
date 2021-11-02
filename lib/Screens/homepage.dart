@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unscathed/Backend/constants.dart';
+import 'package:unscathed/Custom Widgets/customwidgets.dart';
 
 import 'package:unscathed/Screens/timerpage.dart';
 import 'timerpage.dart';
@@ -17,25 +18,16 @@ class _homepageState extends State<homepage> {
     return Column(
       children: [
         Flexible(
-            child: Container(
-          color: Colors.red,
-        )),
-        SizedBox(
-          height: 20.0,
+          child: GestureDetector(child: customDashboardContainer()),
         ),
         Flexible(
             child: InkWell(
           onTap: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => TimerPage())),
-          child: Container(
-            color: Colors.blueGrey,
-          ),
+          child: GestureDetector(child: customDashboardContainer()),
         )),
-        SizedBox(height: 20),
         Flexible(
-          child: Container(
-            color: Colors.green,
-          ),
+          child: GestureDetector(child: customDashboardContainer()),
         ),
       ],
     );
