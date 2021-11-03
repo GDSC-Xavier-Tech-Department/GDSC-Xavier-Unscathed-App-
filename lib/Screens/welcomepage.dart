@@ -31,13 +31,17 @@ class welcomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        color: kdarkColor,
+        decoration: BoxDecoration(
+            color: kdarkColor,
+            image: DecorationImage(
+                image: AssetImage('assets/welcomepage_background.png'),
+                fit: BoxFit.cover)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(
-              'assets/unscathed_logo.png',
+              'assets/logo.png',
               width: 300,
             ),
             Column(
