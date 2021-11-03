@@ -212,82 +212,7 @@ class customColorCheckerState extends State<customColorChecker> {
   }
 }
 
-class customTimerSetDurationWidget extends StatefulWidget {
-  // const customTimerSetDurationWidget({
-  // //   Key? key,
-  // // }) : super(key: key);
-
-  customTimerSetDurationWidget(
-      {required this.minuteController, required this.secondsController});
-
-  TextEditingController minuteController;
-  TextEditingController secondsController;
-
-  @override
-  State<customTimerSetDurationWidget> createState() =>
-      _customTimerSetDurationWidgetState();
-}
-
-class _customTimerSetDurationWidgetState
-    extends State<customTimerSetDurationWidget> {
-  @override
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          children: [
-            Container(
-              width: 50,
-              child: TextField(
-                controller: widget.minuteController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "00",
-                  hintStyle: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Minutes"),
-            ),
-          ],
-        ),
-        SizedBox(width: 10),
-        Column(
-          children: [
-            Container(
-              width: 50,
-              child: TextField(
-                //  controller: secController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "00",
-                  hintStyle: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Seconds"),
-            ),
-          ],
-        )
-      ],
-    );
-  }
-}
-
+//round Buttons for timer page
 class RoundButton extends StatelessWidget {
   const RoundButton({
     Key? key,
@@ -314,18 +239,30 @@ class RoundButton extends StatelessWidget {
   }
 }
 
+//containers in Dashboard
 class customDashboardContainer extends StatelessWidget {
-  const customDashboardContainer({
-    Key? key,
-  }) : super(key: key);
+  // const customDashboardContainer({
+  //   Key? key,
+  // }) : super(key: key);
+
+  customDashboardContainer({required this.firstChild});
+
+  Widget firstChild;
+  // Widget secondChild;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.circular(20),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 3,
+      child: Container(
+        child: Row(
+          children: [firstChild],
+        ),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(20),
+        ),
       ),
     );
   }

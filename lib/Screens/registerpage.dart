@@ -97,7 +97,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: TextFormField(
                             //name
                             controller: nameController,
-                            initialValue: "",
                             validator: (value) {
                               if (value != null &&
                                   value.isNotEmpty &&

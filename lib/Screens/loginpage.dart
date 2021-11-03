@@ -83,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 15.0),
                       customButton(
                           //TODO: Add Integration with Firebase
+                          //TODO: make asynchronous and add another snackbar that pops up when an account is created
                           buttonText: "Submit",
                           onpress: () {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -91,10 +92,16 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             );
 
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Dashboard()));
+                            //manual delay for the next page to show so that
+                            //snackbar won't interfere with curved bottom navigation bar
+                            Future.delayed(const Duration(seconds: 5), () {
+                              setState(() {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Dashboard()));
+                              });
+                            });
                           }),
                       SizedBox(
                         height: 15.0,
