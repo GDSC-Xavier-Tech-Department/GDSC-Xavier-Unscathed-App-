@@ -43,15 +43,17 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          extendBody: true,
           body: Screens[
               pageIndex], //will set the screen based on the Screens list using the current page index
           bottomNavigationBar: CurvedNavigationBar(
             index: pageIndex,
             onTap: (index) => setState(() => pageIndex = index),
             animationDuration: Duration(milliseconds: 300),
-            backgroundColor: Colors.transparent,
-            buttonBackgroundColor: kdarkColor,
-            color: kbuttonColor,
+            buttonBackgroundColor: klighterBlueGrey,
+            backgroundColor:
+                pageIndex == 1 ? klightBlueGrey : Colors.transparent,
+            color: klighterBlueGrey,
             items: navBarItems,
             height: 50,
           )

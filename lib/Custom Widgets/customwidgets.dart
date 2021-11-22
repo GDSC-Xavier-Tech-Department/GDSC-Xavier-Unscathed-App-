@@ -13,7 +13,6 @@ class customDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       thickness: 1.5,
-      color: kbuttonColor,
       height: 15.0,
       indent: 30.0,
       endIndent: 30.0,
@@ -260,7 +259,7 @@ class customDashboardContainer extends StatelessWidget {
         ),
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: Colors.black,
           borderRadius: BorderRadius.circular(20),
         ),
       ),
