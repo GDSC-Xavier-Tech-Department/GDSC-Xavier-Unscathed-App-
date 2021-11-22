@@ -12,11 +12,18 @@ class UnscathedApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: welcomepage(),
       theme: ThemeData.dark().copyWith(
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          toolbarHeight: 60,
+          backgroundColor: Color(0xff141A1F),
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            selectedItemColor: kbuttonColor, backgroundColor: Colors.black12),
-        scaffoldBackgroundColor: Colors.black,
+            selectedItemColor: kbuttonColor,
+            backgroundColor: Colors.transparent),
+        scaffoldBackgroundColor: kdarkBlueGrey,
       ),
     );
   }
