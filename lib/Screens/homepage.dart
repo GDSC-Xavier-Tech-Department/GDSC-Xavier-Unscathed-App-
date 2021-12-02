@@ -3,6 +3,7 @@ import 'package:unscathed/Backend/constants.dart';
 import 'package:unscathed/Custom Widgets/customwidgets.dart';
 import 'package:unscathed/Screens/timerpage.dart';
 import 'timerpage.dart';
+import 'payment.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -38,15 +39,21 @@ class _homepageState extends State<homepage> {
                       ),
                       Text("Timer")
                     ],
-                  )),
-                )),
+                  ),
+                  ),
+                ),
+                ),
           ),
           Flexible(
+            child: InkWell(
+              onTap:() => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => paymentPage())),
             child: GestureDetector(
               child: customDashboardContainer(
-                firstChild: Text('first widget'),
+                firstChild: Text('Payment Page'),
               ),
             ),
+            )
           ),
           Flexible(
             child: Padding(
