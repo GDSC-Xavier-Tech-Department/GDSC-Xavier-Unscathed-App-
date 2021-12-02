@@ -13,6 +13,7 @@ class customDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       thickness: 1.5,
+      color: kbuttonColor,
       height: 15.0,
       indent: 30.0,
       endIndent: 30.0,
@@ -239,7 +240,6 @@ class RoundButton extends StatelessWidget {
 }
 
 //containers in Dashboard
-//containers in Dashboard (2)
 class customDashboardContainer extends StatelessWidget {
   // const customDashboardContainer({
   //   Key? key,
@@ -249,6 +249,7 @@ class customDashboardContainer extends StatelessWidget {
 
   Widget firstChild;
   // Widget secondChild;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -259,8 +260,121 @@ class customDashboardContainer extends StatelessWidget {
         ),
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: Colors.red,
           borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    );
+  }
+}
+
+showCustomDialogBox(
+  BuildContext context, {
+  required String title,
+  required String description,
+}) {
+  return showGeneralDialog(
+    context: context,
+    barrierLabel: '',
+    barrierDismissible: false,
+    barrierColor: Colors.black.withOpacity(0.5),
+    transitionDuration: Duration(milliseconds: 300),
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
+      //dialog box animation
+      return ScaleTransition(
+        child: child,
+        scale: Tween<double>(end: 1.0, begin: 0).animate(CurvedAnimation(
+            parent: animation,
+            curve: Interval(0.0, 0.50, curve: Curves.linear))),
+      );
+    },
+    pageBuilder: (context, animation, secondaryAnimation) {
+      return CustomDialogBox(title: title, description: description);
+    },
+  );
+}
+
+//custom dialog box for verification popup messages
+class CustomDialogBox extends StatelessWidget {
+  final double _borderRadius = 20;
+  final String title, description;
+  bool shouldPop = true;
+  CustomDialogBox({required this.title, required this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    return WillPopScope(
+      onWillPop: () async {
+        return shouldPop;
+      },
+      child: Dialog(
+        elevation: 0,
+        clipBehavior: Clip.antiAlias,
+        backgroundColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(_borderRadius)),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: _width,
+              margin: const EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(
+                  top: 24, left: 20, right: 20, bottom: 80),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(_borderRadius)),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(title,
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
+                  //divider between title and description
+                  Container(
+                      height: 1.5,
+                      margin: const EdgeInsets.symmetric(vertical: 20),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: List.generate(
+                              12,
+                              (_index) => Container(
+                                    width: 6,
+                                    height: 1.5,
+                                    color: Colors.black,
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 2),
+                                  )))),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: Text(description,
+                        style: TextStyle(fontSize: 16, color: Colors.black)),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 20,
+              right: 20,
+              bottom: 0,
+              child: ElevatedButton(
+                clipBehavior: Clip.antiAlias,
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK',
+                    style: TextStyle(fontSize: 18, color: Colors.white)),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  primary: kbuttonColor,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
